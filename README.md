@@ -24,7 +24,7 @@ self.norm = K.augmentation.Normalize(mean=mean, std=std)
 #### Main Hyperparameters We Used
 * learning-rate 3e-5 (grid search [3e−5,1e−4,3e−4,1e−3] in paper)
 * batch-size 8 (32 in paper)
-* iteration number 10 (40K in paper)
+* iteration number 10k (40K in paper)
 * Blocks extracted for DPT -4,-3,-2,-1 (not mentioned in paper)
 * DINO backbone vitl16-pretrain-lvd1689m (web)
 * Input size 512x512 (same as paper)
@@ -39,4 +39,8 @@ self.norm = K.augmentation.Normalize(mean=mean, std=std)
 | m-pv4ger-seg  |     94.8 |                               95.2 |   -0.4 |
 | m-SA-crop     |     **28.3** |                               36.8 |   **-8.5** |
 
-It still remains significant gap on ``m-cashew`` ``m-chesapeake`` ``m-SA-crop``. Any discussion is welcome!
+The experiments are run on a single NVIDIA 4090 24G. Due to the computation limition, I cannot fully reproduce the setting in the paper.
+
+It still remains significant gap on ``m-cashew`` ``m-chesapeake`` ``m-SA-crop``. I am not sure what is cause (might be prepocess pipeline or hyperparameters).
+
+Any discussion is welcome!
