@@ -27,6 +27,7 @@ self.norm = K.augmentation.Normalize(mean=mean, std=std)
 * iteration number 10 (40K in paper)
 * Blocks extracted for DPT -4,-3,-2,-1 (not mentioned in paper)
 * DINO backbone vitl16-pretrain-lvd1689m (web)
+* Input size 512x512 (same as paper)
 
 #### Reproduction Results
 | Task / Metric | **Ours** | **Paper – DINOv3 Sat (ViT-L)** | **Δ (pp)** |
