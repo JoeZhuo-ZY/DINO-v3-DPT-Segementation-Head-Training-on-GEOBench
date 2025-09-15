@@ -29,7 +29,7 @@ self.norm = K.augmentation.Normalize(mean=mean, std=std)
 * DINO backbone vitl16-pretrain-lvd1689m (web)
 
 #### Reproduction Results
-| Task / Metric | **Ours ** | **Paper – DINOv3 Sat (ViT-L) ** | **Δ (pp)** |
+| Task / Metric | **Ours** | **Paper – DINOv3 Sat (ViT-L)** | **Δ (pp)** |
 | ------------- | -----------: | ---------------------------------: | ---------: |
 | m-cashew      |    **41.2** |                               94.2   | (different classes)  |
 | m-chesapeake  |     **60.8** |                               75.6 |  **-14.8** |
