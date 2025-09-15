@@ -29,3 +29,13 @@ self.norm = K.augmentation.Normalize(mean=mean, std=std)
 * DINO backbone vitl16-pretrain-lvd1689m (web)
 
 #### Reproduction Results
+| Task / Metric | **Ours ** | **Paper – DINOv3 Sat (ViT-L) ** | **Δ (pp)** |
+| ------------- | -----------: | ---------------------------------: | ---------: |
+| m-cashew      |    **41.2** |                               94.2   | (different classes)  |
+| m-chesapeake  |     **60.8** |                               75.6 |  **-14.8** |
+| m-NeonTree    |     64.5 |                               61.8 |   +2.7 |
+| m-nz-cattle   |     81.2 |                               83.7 |  -2.5 |
+| m-pv4ger-seg  |     94.8 |                               95.2 |   -0.4 |
+| m-SA-crop     |     **28.3** |                               36.8 |   **-8.5** |
+
+It still remains significant gap on ``m-cashew`` ``m-chesapeake`` ``m-SA-crop``. Any discussion is welcome!
