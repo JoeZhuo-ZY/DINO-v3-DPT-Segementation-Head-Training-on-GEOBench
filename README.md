@@ -2,5 +2,30 @@
 The official training code for SegHead was not released; this repo provides a training loop, a DPT decoder head, and a GeoBench wrapper that supports single-task and multi-task runs.
 
 The DPT head code is from a Meta [repo](https://github.com/facebookresearch/HighResCanopyHeight/blob/main/models/dpt_head.py#L245).
+
 The GeoBench dataset wrapper is from DOFA [repo](https://github.com/xiong-zhitong/DOFA-pytorch/blob/geofm/src/datasets/geobench_wrapper.py).
 
+#### GeoBench Prepocess
+We first normalize samples to [0,1] per channel based on the min and max stats provided by GeoBench：
+
+```
+band_stats = task.get_dataset(band_names=band_names).band_stats
+self.max_bands = np.array([band_stats[b].max for b in band_names])
+self.min_bands = np.array([band_stats[b].min for b in band_names])
+
+array = (array - self.min_bands) / (self.max_bands - self.min_bands)
+```
+
+and then normalize by the mean (0.485, 0.456, 0.406) and std (0.229, 0.224, 0.225).
+```
+self.norm = K.augmentation.Normalize(mean=mean, std=std)
+```
+
+#### Main Hyperparameters We Used
+* learning-rate 3e-5 (grid search [3e−5,1e−4,3e−4,1e−3] in paper)
+* batch-size 8 (32 in paper)
+* iteration number 10 (40K in paper)
+* Blocks extracted for DPT -4,-3,-2,-1 (not mentioned in paper)
+* DINO backbone vitl16-pretrain-lvd1689m (web)
+
+#### Reproduction Results
